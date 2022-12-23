@@ -1,0 +1,25 @@
+{
+  "name": "ethos-software-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mortal-ghost/ethos-software-challenge.git"
+  },
+  "author": "Anmoldeep Singh, Arthi Sai Akshith, Kartik Sharma,  M Samson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mortal-ghost/ethos-software-challenge/issues"
+  },
+  "homepage": "https://github.com/mortal-ghost/ethos-software-challenge#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.1"
+  }
+}
