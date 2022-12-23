@@ -16,7 +16,13 @@ const FileSchema = new mongoose.Schema({
     uuid: {
         type: String,
         required: true,
-    }
+    },
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Comment',
+        }
+    ]
 });
 
 module.exports = mongoose.model('File', FileSchema);

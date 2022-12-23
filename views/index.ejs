@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video->Audio Generator</title>
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="my-4 mx-10">
+        <h1 class="flex text-2xl font-roboto align-middle">
+            <span class="mx-1">
+                <img src="/images/logo.png" alt="logo" width="50" height="50">
+            </span>
+            Audio Describer
+        </h1>
+    </div>
+
+    <div class="md:flex text-center">
+        <div class="md:w-1/2 p-10">
+            <img src="/images/main.png">
+        </div>
+
+        <div class="border-2 border-dashed self-center rounded-2xl bg-white p-8 md:w-1/2 items-center m-2 flex flex-col justify-center">
+            <img width="200px" src="/images/file.svg">
+
+            <div class="mt-4 mb-1">
+                <h2 class="text-2xl">
+                    Select a file to share
+                </h2>
+            </div>
+            <form action="/api/files" enctype="multipart/form-data" class="flex flex-col justify-center items-center text-sm" method="post">
+                <input type="file" name="file" class="ml-[75px]" id="file-input" required>
+ 
+                <button class="mt-4 w-[150px] bg-[#6E41E2] hover:bg-[#875bf6] text-white py-2 px-4 rounded-lg" type="submit">
+                    Upload
+                </button>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>
