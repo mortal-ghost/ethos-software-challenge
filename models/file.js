@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose =  require('mongoose');
 
 const FileSchema = new mongoose.Schema({
     filename: {
@@ -7,10 +7,6 @@ const FileSchema = new mongoose.Schema({
     },
     path: {
         type: String,
-        required: true,
-    },
-    size: {
-        type: Number,
         required: true,
     },
     uuid: {
