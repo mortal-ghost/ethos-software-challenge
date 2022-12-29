@@ -1,0 +1,25 @@
+<%- include('header')  %>
+<link rel="stylesheet" href="register.css">
+
+<div class="col-lg-6 mx-auto">
+        <form action="/user/register" method="post" class="form p-5 border rounded-3 bg-light mt-5" role="form" novalidate="">
+            <h1 class="display-5 text-center mb-5">Register</h1>
+                <input id="csrf_token" name="csrf_token" type="hidden"value="ImQ1ODcwNjFkOTE4ODI4NzVmOTdhNjk2NTc1ZTAwYTBkNDlkZjRiZDki.Yr2XQQ.6xC1WbVZGohLBUb9hC2EIVAOPqo">
+                    <div class="form-group  required mb-4"><label class="control-label" for="username">Username</label>
+                        <input class="form-control" id="username" name="username"  type="text" required>
+                    </div>
+               
+                <div class="form-group  required mb-4"><label class="control-label" for="email">Email Address</label>
+                    <input class="form-control" id="email" name="email" required type="text">
+                </div>
+                <div class="form-group  required mb-4"><label class="control-label" for="password">Password</label>
+    
+                    <input class="form-control" id="password" name="password" required type="password">
+    
+                </div>
+                <input class="btn btn-primary" id="submit" name="submit" type="submit" value="Create an account">
+            </form>
+            <p class="pt-3">Have an account? <a href="/login" class="form_link">Login</a></p>
+        </div>
+    
+<%- include('footer') %>

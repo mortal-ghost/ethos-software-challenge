@@ -1,0 +1,24 @@
+<%- include('header') %>
+    <% if(currentUser){ %>
+        <link rel="stylesheet" href="index.css">
+        <h1>Hello <%= currentUser.username%>!</h1>
+        <h2>If you want to convert through url, please paste the url below:</h2>
+        <form action="/url" method="post">
+            <input type="text" name="url" id="url-text">
+            <h2>Name of your project?</h2>
+            <input type="text" name="name" id="name">
+            <input type="submit" class="btn btn-primary" value="Generate MP3" id="submit">
+        </form>
+        <h2>You can also upload your video here</h2>
+        <form action="/files" method="post">
+
+            <input type="file" id="myFile" name="file">
+
+            <input type="submit" class="btn btn-primary" value="Generate MP3" id="submit">
+            
+        </form>
+        <% }else {%>
+            <h1>Hello! please login to Explore!</h1>
+            <% }%>
+                <script src="index.js" async defer></script>
+                <%- include('footer') %>
