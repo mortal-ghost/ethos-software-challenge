@@ -10,5 +10,3 @@ print("Video file name: " + sys.argv[1])
 print(audioName)
 print("Converting video to audio...")
 clip.audio.write_audiofile(audioName)
-
-

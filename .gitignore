@@ -102,3 +102,14 @@ dist
 
 # TernJS port file
 .tern-port
+
+./files/*.wav
+./files/*.mp3
+./files/*.ogg
+./files/*.m4a
+./files/*.aac
+./files/*.mp4
+./files/*.webm
+./files/*.3gp
+./files/*.flac
+./files/*.opus
