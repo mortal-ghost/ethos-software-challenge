@@ -1,6 +1,6 @@
 function Navbar() {
     return (
-        <nav className="flex justify-between mt-2 mx-4">
+        <nav className="flex justify-between items-center mt-2 mx-4">
             <a href="/">
                 <h1 className="flex flex-row items-center text-[1.35em] font-[600]">
                     <span>
@@ -11,7 +11,7 @@ function Navbar() {
             </a>
             <ul className="flex">
                 <li className="mr-4 ml-2"><a href="">Login</a></li>
-                <li className="ml-2 mr-4"><a href="">Register</a></li>
+                <li className="ml-2 mr-4"><a className=" border-indigo-400 border rounded-md text-indigo-400 p-1.5" href="">Register</a></li>
             </ul>
         </nav>
     );
