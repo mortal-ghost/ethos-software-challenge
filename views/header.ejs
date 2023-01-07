@@ -12,7 +12,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- CSS only -->
-  <link rel="stylesheet" href="https://use.typekit.net/ycc2uzo.css">
+  <!-- <link rel="stylesheet" href="https://use.typekit.net/ycc2uzo.css"> -->
   <link rel="stylesheet" href="/styles/style.css">
   <style>
     /* body {
@@ -23,38 +23,6 @@
   </style>
 </head>
 <body>
-  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">Ethos Project Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <% if(!currentUser){%>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/user/register">register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/user/login">login</a>
-            </li>
-            <% }else{%>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/user/logout">logout</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/all_projects">Show All Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Create New Project</a>
-              </li>
-
-              <% } %>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
   <nav className="flex justify-between items-center mt-2 mx-4">
     <a href="/">
         <h1 className="flex flex-row items-center text-[1.35em] font-[600]">
@@ -65,9 +33,7 @@
         </h1>
     </a>
     <ul className="flex">
-        <li className="mr-4 ml-2"><a href="">Login</a></li>
-        <li className="ml-2 mr-4"><a className=" border-indigo-400 border rounded-md text-indigo-400 p-1.5" href="">Register</a></li>
+        <li className="mr-4 ml-2"><a href="/user/login">Login</a></li>
+        <li className="ml-2 mr-4"><a className=" border-indigo-400 border rounded-md text-indigo-400 p-1.5" href="/user/register">Register</a></li>
     </ul>
-</nav>
-</body>
-</html>
+  </nav>

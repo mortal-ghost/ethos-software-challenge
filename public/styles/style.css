@@ -547,10 +547,6 @@ video {
   }
 }
 
-.collapse {
-  visibility: collapse;
-}
-
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -573,12 +569,12 @@ video {
   margin-bottom: 1.25rem;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
 .mr-1 {
   margin-right: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .mr-4 {
@@ -632,6 +628,11 @@ video {
 .border-indigo-400 {
   --tw-border-opacity: 1;
   border-color: rgb(129 140 248 / var(--tw-border-opacity));
+}
+
+.bg-purple-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(216 180 254 / var(--tw-bg-opacity));
 }
 
 .p-5 {
