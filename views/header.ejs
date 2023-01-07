@@ -13,6 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- CSS only -->
   <link rel="stylesheet" href="https://use.typekit.net/ycc2uzo.css">
+  <link rel="stylesheet" href="/styles/style.css">
   <style>
     /* body {
       font-family: roboto, sans-serif;
@@ -22,7 +23,7 @@
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">Ethos Project Home</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -53,4 +54,20 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
+  <nav className="flex justify-between items-center mt-2 mx-4">
+    <a href="/">
+        <h1 className="flex flex-row items-center text-[1.35em] font-[600]">
+            <span>
+                <img className="h-[32px] mr-1" src="/logo.png" alt="logo"></img>
+            </span>
+            Ethos
+        </h1>
+    </a>
+    <ul className="flex">
+        <li className="mr-4 ml-2"><a href="">Login</a></li>
+        <li className="ml-2 mr-4"><a className=" border-indigo-400 border rounded-md text-indigo-400 p-1.5" href="">Register</a></li>
+    </ul>
+</nav>
+</body>
+</html>
