@@ -1,24 +1,64 @@
 <%- include('header') %>
-    <% if(currentUser){ %>
-        <link rel="stylesheet" href="index.css">
-        <h1>Hello <%= currentUser.username%>!</h1>
-        <h2>If you want to convert through url, please paste the url below:</h2>
-        <form action="/url" method="post">
-            <input type="text" name="url" id="url-text">
-            <h2>Name of your project?</h2>
-            <input type="text" name="name" id="name">
-            <input type="submit" class="btn btn-primary" value="Generate MP3" id="submit">
-        </form>
-        <h2>You can also upload your video here</h2>
-        <form action="/files" method="post">
+    <div class="mx-6 md:mx-20 lg:mx-32 my-10 xl:mb-16">
+        <h2 class="text-6xl md:text-4xl lg:text-5xl xl:text-6xl text-center md:text-left font-bold text-[#231c60]">
+            Convert your videos <span class="md:block"></span> with ease
+        </h2>
+        <div class="md:flex md:text-left text-center">
+            <div class="md:w-1/2">
+                <p class="pt-4 text-3xl md:text-2xl lg:text-3xl text-[#231c60] font-[600]">
+                    Fuck yourself
+                </p>
+                <div class="flex text-lg mt-6 items-center md:justify-start justify-center">
+                    <a href="/user/login" class="mx-4 bg-[#231c60] px-10 py-2 hover:bg-[#1e10b7] font-bold rounded-2xl text-white">
+                        Login
+                    </a>
 
-            <input type="file" id="myFile" name="file">
+                    <p class="mr-5 border-r-[1px] border-black h-[46px] p-1"></p>
 
-            <input type="submit" class="btn btn-primary" value="Generate MP3" id="submit">
-            
-        </form>
-        <% }else {%>
-            <h1>Hello! please login to Explore!</h1>
-            <% }%>
-                <script src="index.js" async defer></script>
-                <%- include('footer') %>
+                    <a class="border border-[#231c60] font-bold rounded-2xl hover:border-[#1e10b7] hover:text-[#1e10b7] px-5 py-2" href="/user/register">
+                        Register
+                    </a>
+                </div>
+            </div>
+            <div class="flex items-center md:w-1/2 my-10 md:my-0 mx-5 sm:mx-10 justify-center">
+ z               <img src="/main.png" alt="main" class="md:ml-10">
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h2 class="text-center text-4xl md:text-3xl lg:text-4xl text-[#231c60]">
+            Features
+        </h2>
+        <div class="sm:flex justify-center lg:justify-evenly my-6">
+            <div class="flex flex-col w-full md:w-1/2 lg:w-auto mb-2 p-4">
+                <img src="/feature1.png" alt="feature2" class="mx-auto">
+                <h3 class="text-center text-xl mb-1">
+                    Versatile
+                </h3>
+                <p class="text-center">
+                    Supports .mp3, .wav, .ogg and <br>many more
+                </p>
+            </div>
+            <div class="flex flex-col w-full md:w-1/2 lg:w-auto mb-2 p-4">
+                <img src="/feature2.png" alt="feature2" class="mx-auto">
+                <h3 class="text-center text-xl mb-1">
+                    Captions
+                </h3>
+                <p class="text-center">
+                    Add Comments and Tags on the <br>audio files
+                </p>
+            </div>
+            <div class="flex flex-col w-full md:w-1/2 lg:w-auto mb-2 p-4">
+                <img src="/feature3.png" alt="feature1" class="mx-auto">
+                <h3 class="text-center text-xl mb-1">
+                    Share your music
+                </h3>
+                <p class="text-center">
+                    Share the converted audio files
+                </p>
+            </div>
+        </div>
+    </div>
+
+<%- include('footer') %>
