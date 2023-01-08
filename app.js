@@ -17,6 +17,7 @@ const server = http.Server(app);
 var multer = require('multer');
 var upload = multer({ dest: 'public/videos' });
 const connectDB = require('./config/db');
+const isLoggedIn = require('./utils/middleware');
 
 app.use(session({
     secret: 'whatever you want',
@@ -212,11 +213,11 @@ app.get('/error', (req,res)=>{
     
 });
 
-app.get('/upload_file', (req, res) => {
+app.get('/upload_file', isLoggedIn, (req, res) => {
     res.render('input');
 });
 
-app.get('/all_projects', async (req, res) => {
+app.get('/all_projects', isLoggedIn, async (req, res) => {
 
     const allAudios = await Audio.find({ userid: String(req.user._id) });
 
