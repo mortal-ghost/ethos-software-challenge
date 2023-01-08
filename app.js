@@ -52,11 +52,18 @@ io.on('connection', socket => {
     console.log('Someone connected');
     let AUDIO_ID;
     socket.on('hello', async (value) => {
+        console.log('Someone opened their audio player');
         socket.join(value);
         AUDIO_ID = value;
         console.log(value);
         let tempAudio = await Audio.findOne({ id: AUDIO_ID });
-        socket.emit('comments', tempAudio.comments);
+        let totalComments = [];
+
+        for(let i = 0;i<tempAudio.comments.length; i++){
+            let tempcomment = await Comment.findOne({_id: tempAudio.comments[i]});
+            totalComments.push(tempcomment);
+        }
+        socket.emit('comments', totalComments);
 
     });
     socket.on('indexhello', async (value) => {
@@ -148,7 +155,7 @@ app.post('/url', async (req, res) => {
     const filename = req.user.username + '_' + newAudio._id + '.mp3';
     let command = "python3 " + "getyoutubeaudio.py " + "'" + req.body.url + "'" + " " + (req.user.username + '_' + newAudio._id);
     console.log(command);
-    
+
     let end = 0;
     exec(command, async (error, stdout, stderr) => {
         if (error) {

@@ -6,6 +6,8 @@
 <script src="/socket.io/socket.io.js" defer></script>
 <script src="/play.js" defer></script>
 <h1 class="display-6 text-center mb-5 mt-5"><%= Audio.name %></h1>
+
+<%- include('audioplayer.ejs') %>
 <div class="container h-screen">
   <div class="row justify-content-center mt-5">
     <div class="card shadow col-8 cardstyle bg-light">
@@ -23,32 +25,34 @@
   <div class="row justify-content-center mt-5 rounded-3">
     <div class="card shadow col-6 justify-content-center">
       <h2 class="display-6 text-center mb-5 mt-5" id="result"></h2>
-      <div class="form-group required mb-4">
-        <label class="control-label" for="username">Title</label>
-        <input
-          class="form-control"
-          id="comment-name"
-          name="username"
-          required
-          type="text"
-        />
-      </div>
-      <div class="form-group required mb-4">
-        <label class="control-label" for="username">Comment</label>
-        <textarea
-          class="form-control"
-          id="textarea"
-          name="username"
-          required
-          type="text"
-        >
-        </textarea>
-      </div>
-      <button id="add-comment" class="mb-4 col-3 btn btn-success">
-        Add comment
-      </button>
+      <%- include('comments') %>
     </div>
   </div>
   <div id="all-comments"></div>
+   <!--comment 1-->
+   <div class="flex  items-center w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
+
+    <a href="#" class="flex items-center mt-6 mb-6 mr-6"><img src="https://avatars.githubusercontent.com/u/71964085?v=4" alt="avatar" class="hidden object-cover w-14 h-14 mx-4 rounded-full sm:block">
+    </a>
+
+      <div><h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">By James Amos</h3>
+        <p class="text-sm font-bold text-gray-300">August 22,2021</p>
+        <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
+         Please help with how you did the migrations for the blog database fields.I tried mine using exactly what you instructed but its not working!!.</p>
+      </div>
+      
+  </div>
+  <!--comment 2-->
+  <div class="flex  items-center w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
+
+    <a href="#" class="flex items-center mt-6 mb-6 mr-6"><img src="https://avatars.githubusercontent.com/u/71964085?v=4" alt="avatar" class="hidden object-cover w-14 h-14 mx-4 rounded-full sm:block">
+    </a>
+
+      <div><h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">By James Amos</h3>
+        <p class="text-sm font-bold text-gray-300">August 22,2021</p>
+        <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">
+          Especially I dont understand the concepts of multiple models.What really is the difference between the blog model and blogApp model? Am stuck</p>
+      </div>
+  </div>
 </div>
 <%- include('footer') %>
