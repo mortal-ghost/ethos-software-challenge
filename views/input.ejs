@@ -2,11 +2,7 @@
 <!-- component -->
 <div class="flex items-center justify-center p-12 h-screen">
   <div class="mx-auto w-full max-w-[550px] bg-white">
-    <form
-      class="py-6 px-9"
-      method="post"
-      action="/url"
-    >
+    <form class="py-6 px-9" method="post" action="/url">
       <div class="mb-5">
         <label
           for="email"
@@ -24,18 +20,19 @@
         />
       </div>
 
-      <button class="w-full rounded-md bg-[#6A64F1] py-3 px-6 text-base font-bold text-white">
+      <button
+        class="w-full rounded-md bg-[#6A64F1] py-3 px-6 text-base font-bold text-white"
+      >
         Upload
       </button>
-      </form>
-      <form class="px-9 pb-9" method="post" action="/">
+    </form>
+    <form class="px-9 pb-9" method="post" action="/files">
       <div class="mb-6 pt-4">
         <label class="mb-5 block text-xl font-semibold text-[#07074D]">
           Upload File
         </label>
 
         <div class="mb-8">
-          <input type="file" name="file" id="file" class="sr-only" required/>
           <label
             for="file"
             class="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
@@ -50,12 +47,12 @@
               <span
                 class="inline-flex hover:cursor-pointer rounded border border-[#e0e0e0] py-2 px-7 text-base font-medium text-[#07074D]"
               >
-                Browse
+                <input type="file" name="file" id="file" required />
               </span>
             </div>
           </label>
         </div>
-<!-- 
+        <!-- 
         <div class="mb-5 rounded-md bg-[#F5F7FB] py-4 px-8">
           <div class="flex items-center justify-between">
             <span class="truncate pr-3 text-base font-medium text-[#07074D]">
@@ -86,7 +83,7 @@
             </button>
           </div>
         </div> -->
-        
+
         <!-- <div class="rounded-md bg-[#F5F7FB] py-4 px-8">
           <div class="flex items-center justify-between">
             <span class="truncate pr-3 text-base font-medium text-[#07074D]">
@@ -122,7 +119,7 @@
           </div>
         </div> -->
       </div>
-      
+
       <div>
         <button
           type="submit"

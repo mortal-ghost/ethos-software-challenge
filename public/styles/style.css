@@ -1324,6 +1324,10 @@ video {
     margin-bottom: 0px;
   }
 
+  .sm\:block{
+    display: block;
+  }
+
   .sm\:flex{
     display: flex;
   }
