@@ -207,10 +207,9 @@ app.get('/play_music/:id', async (req, res) => {
     }
 
 });
-app.get('/error', (req,res)=>{
 
+app.get('/error', (req,res)=>{
     res.render('error');
-    
 });
 
 app.get('/upload_file', isLoggedIn, (req, res) => {

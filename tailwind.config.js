@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./views/**/*.ejs", "./public/**/*.js"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+      }
+    },
   },
   plugins: [],
 }
