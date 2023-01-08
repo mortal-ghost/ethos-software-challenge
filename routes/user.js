@@ -13,7 +13,7 @@ router.post('/register',async function (req, res) {
             console.log(err);
         }
         else{
-            res.redirect('/');
+            res.redirect('/all_projects');
         }
     })
     
@@ -26,7 +26,7 @@ router.get('/login',(req,res)=>{
 router.post('/login',passport.authenticate('local',{failureRedirect: '/user/login', failureFlash: true}),function(req,res){
     // console.log(passport);
     req.flash('success', 'You have successfully logged in');
-    res.redirect('/');
+    res.redirect('/all_projects');
 });
 
 router.get('/logout',(req,res)=>{

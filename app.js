@@ -113,11 +113,9 @@ io.on('connection', socket => {
         }
         socket.emit('comments', commentsToBeSent);
         await currentAudio.save();
+    });
+});
 
-    })
-
-
-})
 //When you even redirect from any route, it will come below first, I mean the request will re propagate.
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
@@ -129,13 +127,14 @@ app.use((req, res, next) => {
     }
     next();
 })
-app.use('/user', userRoute);
-app.get('/', (req, res) => {
 
+app.use('/user', userRoute);
+
+app.get('/', (req, res) => {
     res.render('index.ejs');
 });
-app.post('/url', async (req, res) => {
 
+app.post('/url', async (req, res) => {
     console.log(req.body);
     const newAudio = Audio({});
     newAudio.name = req.body.name;
@@ -206,15 +205,15 @@ app.get('/play_music/:id', async (req, res) => {
         res.render('index.ejs');
     }
 
-})
-
+});
 
 app.get('/all_projects', async (req, res) => {
 
     const allAudios = await Audio.find({ userid: String(req.user._id) });
 
     res.render('allprojects.ejs', { allAudios: allAudios });
-})
+});
+
 server.listen(3000, (err) => {
 
     if (err) {
@@ -223,5 +222,5 @@ server.listen(3000, (err) => {
     else {
         console.log('App is listening in port 3000');
     }
+});
 
-})
