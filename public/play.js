@@ -1,22 +1,33 @@
 const socket = io('/');
 let resEle = document.querySelector("#result");
 let audioEle = document.querySelector("#audio");
+let musicPlayer = document.querySelector('#music-player');
+let musicSlider = document.querySelector('#slider');
+
+let commetntCnt = 0;
 
 currentMinute = 0, currentSecond = 0;
 socket.emit('hello', AUDIO_ID);
 const display = () => {
+    let totalDuration = audioEle.duration;
     currentMinute = Math.floor(audioEle.currentTime / 60);
     currentSecond = Math.floor(audioEle.currentTime % 60);
+    let currentDuration = 60*currentMinute + currentSecond;
+    let temp = (Math.floor((currentDuration*100)/totalDuration)) + "%";
+    musicSlider.style.left = temp;
     resEle.innerHTML =  Math.floor(audioEle.currentTime / 60) + ":";
     resEle.innerHTML +=  Math.floor(audioEle.currentTime % 60) + "";
 
 }
 setInterval(display, 100);
 
-const createComment = (comment) => {
+const createComment = async (comment) => {
 
-    let timeStamp = String(comment.timestampMinutes) + ":" + String(comment.timestampSeconds);
-
+    commetntCnt++;
+    let temp = (Math.floor((currentDuration*100)/totalDuration)) + "%";
+    musicPlayer.innerHTML+=`
+        <div id="${commetntCnt}" class="stamp style="left:${temp}"><\div>
+    `
     document.getElementById('all-comments').innerHTML += `
 
     <div class="flex  items-center w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3 comment" id=>
