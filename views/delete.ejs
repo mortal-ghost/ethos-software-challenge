@@ -1,0 +1,19 @@
+<%- include('header') -%>
+    <div class="h-[72vh] justify-center mt-8 items-center">
+        <div class="text-center">
+            <h2 class="text-3xl mb-4">
+                Project Name - <span><%= title %></span>
+            </h2>
+        </div>
+        <img src="/delete.svg" class="w-[100px] h-[100px] mx-auto">
+        <h1 class="text-2xl text-center mt-5">Are you sure you want to delete this project?</h1>
+        <div class="flex justify-center mt-5">
+            <form method="post" action="/delete/<%= id %>?_method=DELETE">
+                <button class="bg-red-500 mx-5 w-[100px] text-white rounded-full text-3xl mt-0 pt-2 pb-2" type="submit">Yes</button>
+            </form>
+            <a href="/allprojects">
+                <button class="bg-green-500 w-[100px] text-white rounded-full text-3xl mt-0 pt-2 pb-2">No</button>
+            </a>
+        </div>
+    </div>
+<%- include('footer') -%>

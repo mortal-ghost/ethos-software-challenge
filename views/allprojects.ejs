@@ -19,19 +19,26 @@
               </div>
             </a>
             <div class="flex items-center">
-              <a class="hidden" href="/rename/<%= allAudios[i].id%>">
+              <button id="rename-<%=i%>" onclick="handleRename('<%=i%>')">
                 <img src="/rename.svg">
-              </a>
+              </button>
               <a href="/delete/<%= allAudios[i].id%>">
                 <img src="/delete.svg">
               </a>
             </div>
         </div>
+        <form id="rename-form-<%=i%>" class="hidden mx-10 -mt-5 mb-5" method="post" action="/rename/<%= allAudios[i].id%>?_method=PUT">
+          <div class="flex flex-between">
+            <input type="text" name="name" placeholder="Enter new name" class="border flex-grow border-gray-400 rounded-lg p-2">
+            <button type="submit" class="bg-[#231c60] text-white rounded-full text-xl p-4 mt-0 pt-2 pb-2 flex items-center">
+              Rename
+            </button>
+          </div>
+        </form>
       <% } %>
     </div>
   </div>
 </div>
-
 <form method="get" action="/upload_file">
   <button
     class="fixed bottom-[40px] right-[40px] bg-[#231c60] text-white rounded-full text-3xl p-4 mt-0 pt-2 pb-2 flex items-center"
@@ -40,4 +47,18 @@
     +
   </button>
 </form>
+
+<script>
+  const handleRename = (i) => {
+    const renameForm = document.getElementById(`rename-form-${i}`);
+    const renameButton = document.getElementById(`rename-${i}`);
+    if (renameForm.classList.contains("hidden")) {
+      renameForm.classList.remove("hidden");
+      renameButton.innerHTML = `<img src="/cancel_rename.svg">`;
+    } else {
+      renameForm.classList.add("hidden");
+      renameButton.innerHTML = `<img src="/rename.svg">`;
+    }
+  };
+</script>
 <%- include('footer') -%>
