@@ -206,6 +206,11 @@ app.get('/play_music/:id', async (req, res) => {
     }
 
 });
+app.get('/error', (req,res)=>{
+
+    res.render('error');
+    
+});
 
 app.get('/all_projects', async (req, res) => {
 
@@ -224,3 +229,5 @@ server.listen(3000, (err) => {
     }
 });
 
+
+})
