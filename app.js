@@ -59,8 +59,8 @@ io.on('connection', socket => {
         let tempAudio = await Audio.findOne({ id: AUDIO_ID });
         let totalComments = [];
 
-        for(let i = 0;i<tempAudio.comments.length; i++){
-            let tempcomment = await Comment.findOne({_id: tempAudio.comments[i]});
+        for (let i = 0; i < tempAudio.comments.length; i++) {
+            let tempcomment = await Comment.findOne({ _id: tempAudio.comments[i] });
             totalComments.push(tempcomment);
         }
         socket.emit('comments', totalComments);
@@ -83,11 +83,11 @@ io.on('connection', socket => {
             let finalresults = [];
 
             for (let i = 0; i < results.length; i++) {
-                let comment = await Comment.findOne({_id: results[i].comment});
+                let comment = await Comment.findOne({ _id: results[i].comment });
                 console.log(comment);
                 finalresults.push(comment);
             }
-            socket.emit('tagresults',finalresults);
+            socket.emit('tagresults', finalresults);
         }
     })
     socket.on('addcomment', async (comment) => {
@@ -182,23 +182,23 @@ app.post('/url', async (req, res) => {
         }
     }
 })
-app.post('/files', upload.single('file'), (req, res) => {
-    console.log(req.files);
-    if (req.files) {
-        console.log(req.files);
-        var file = req.files.file;
-        var filename = file.name
-        console.log(filename);
-        file.mv('./public/videos/' + filename, function (err) {
-            if (err) {
-                res.send(err);
-            }
-            else {
-                res.send("file uploaded");
-            }
-        })
-    }
-})
+// app.post('/files', upload.single('file'), (req, res) => {
+//     console.log(req.files);
+//     console.log(req.file);
+//     if (req.files) {
+//         console.log(req.files);
+//         var file = req.files.file;
+//         var filename = file.name
+//         console.log(filename);
+//         file.mv('./public/videos/' + filename, function (err) {
+//             if (err) {
+//                 res.send(err);
+//             } else {
+//                 res.send("file uploaded");
+//             }
+//         });
+//     }
+// })
 app.get('/play_music/:id', async (req, res) => {
     console.log('I am called');
     if (req.user) {
@@ -215,7 +215,7 @@ app.get('/play_music/:id', async (req, res) => {
 
 });
 
-app.get('/error', (req,res)=>{
+app.get('/error', (req, res) => {
     res.render('error');
 });
 

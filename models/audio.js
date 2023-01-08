@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var AudioSchema = new mongoose.Schema({
-
     name : String,
     path : String,
     id   : String,

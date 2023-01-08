@@ -10,16 +10,6 @@
       <% } %> 
       <% for(let i=0; i < allAudios.length; i++) { %>
         <div class="flex justify-between border border-gray-400 mx-10 mb-5 p-2 rounded-lg">
-            <!-- <div class="card-body">
-            <h2 class="display-6 text-center mb-5"><%=allAudios[i].name %></h2>
-            <div class="row justify-content-center">
-                <a
-                class="col-6 text-center"
-                href="/play_music/<%= allAudios[i].id%>"
-                ><button class="btn btn-primary">Full Details</button></a
-                >
-            </div>
-            </div> -->
             <a href="/play_music/<%= allAudios[i].id%>">
               <div class="text-lg flex items-center">
                 <span>
