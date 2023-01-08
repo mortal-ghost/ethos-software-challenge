@@ -1,34 +1,33 @@
 <%- include('header') %>
 
-
-    <div class="container mt-5 d-flex p-5 justify-content-center">
-        <div class="card col-7 justify-content-center rounded">
-            <h1 class="display-5 text-center mb-2 rounded">All Projects:</h1>
-            <hr>
-            <div class="card-body d-flex flex-column align-items-center">
-
-                <% if(allAudios.length==0){%>
-                    <h3>Currently you don't have any project!</h3>
-                    <% } %>
-
-                        <% for(let i=0;i<allAudios.length;i++){%>
-                            <div class="card justify-content-center bg-light shadow col-8 mb-5">
-
-                                <div class="card-body">
-                                    <h2 class="display-6 text-center mb-5">
-                                        <%=allAudios[i].name %>
-                                    </h2>
-                                    <div class="row justify-content-center">
-
-                                        <a class="col-6 text-center"
-                                            href="/play_music/<%= allAudios[i].id%>"><button
-                                                class="btn btn-primary"> Full Details</button></a>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <% }%>
-            </div>
+<div class="container mt-5 d-flex p-5 justify-content-center">
+  <div class="card col-7 justify-content-center rounded">
+    <h1 class="display-5 text-center mb-2 rounded">All Projects:</h1>
+    <hr />
+    <div class="card-body d-flex flex-column align-items-center">
+      <% if(allAudios.length==0){%>
+      <h3>Currently you don't have any project!</h3>
+      <% } %> <% for(let i=0; i < allAudios.length; i++) { %>
+      <div class="card justify-content-center bg-light shadow col-8 mb-5">
+        <div class="card-body">
+          <h2 class="display-6 text-center mb-5"><%=allAudios[i].name %></h2>
+          <div class="row justify-content-center">
+            <a
+              class="col-6 text-center"
+              href="/play_music/<%= allAudios[i].id%>"
+              ><button class="btn btn-primary">Full Details</button></a
+            >
+          </div>
         </div>
+      </div>
+      <% } %>
     </div>
-            <%- include('footer') %>
+  </div>
+</div>
+
+<form>
+  <button class="fixed bottom-[40px] right-[40px] bg-[#231c60] text-white rounded-full text-3xl p-4" type="submit">
+    +
+  </button>
+</form>
+<%- include('footer') %>
