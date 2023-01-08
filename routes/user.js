@@ -13,25 +13,29 @@ router.post('/register',async function (req, res) {
             console.log(err);
         }
         else{
-
             res.redirect('/');
         }
     })
     
 });
+
 router.get('/login',(req,res)=>{
     res.render('login');
 });
+
 router.post('/login',passport.authenticate('local',{failureRedirect: '/user/login', failureFlash: true}),function(req,res){
     // console.log(passport);
     req.flash('success', 'You have successfully logged in');
     res.redirect('/');
-} );
+});
+
 router.get('/logout',(req,res)=>{
     req.logout( function(err){
         req.flash('success', 'You have successfully logged out!');
         res.redirect('/');
     });
 })
-router.get('/schedule')
+
+router.get('/schedule');
+
 module.exports = router;

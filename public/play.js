@@ -48,7 +48,25 @@ addCommentBtn.addEventListener('click', () => {
     let comment = textArea.value;
     const commentName = document.getElementById('comment-name');
     let name = commentName.value;
-    let finalcomment = { title: name, timestampMinutes: currentMinute, timestampSeconds: currentSecond, content: comment };
+
+    let tags = [];
+
+    for(let i = 0;i<comment.length;i++){
+        if(comment[i]=='#'){
+            i++;
+            let word = "";
+            for(i;i<comment.length;i++){
+                if(comment[i]==' '){
+                    break;
+                }
+                else{
+                    word+=comment[i];
+                }
+            }
+            tags.push(word);
+        }
+    }
+    let finalcomment = { title: name, timestampMinutes: currentMinute, timestampSeconds: currentSecond, content: comment, tags: tags };
     console.log(finalcomment);
     socket.emit('addcomment', finalcomment);
     textArea.value = "";
