@@ -35,6 +35,9 @@ const display = () => {
     }
     currentMinute = Math.floor(audioEle.currentTime / 60);
     currentSecond = Math.floor(audioEle.currentTime % 60);
+    let currentDuration = 60*currentMinute + currentSecond;
+    let temp = (Math.floor((currentDuration*100)/totalDuration)) + "%";
+    musicSlider.style.left = temp;
     resEle.innerHTML =  Math.floor(audioEle.currentTime / 60) + ":";
     resEle.innerHTML +=  Math.floor(audioEle.currentTime % 60) + "";
 
@@ -62,7 +65,6 @@ const createComment = (comment) => {
       ${comment.content}</p>
     </div>
 </div>
-   
   `;
 
 
