@@ -212,6 +212,10 @@ app.get('/error', (req,res)=>{
     
 });
 
+app.get('/upload_file', (req, res) => {
+    res.render('input');
+});
+
 app.get('/all_projects', async (req, res) => {
 
     const allAudios = await Audio.find({ userid: String(req.user._id) });
@@ -228,6 +232,3 @@ server.listen(3000, (err) => {
         console.log('App is listening in port 3000');
     }
 });
-
-
-})
