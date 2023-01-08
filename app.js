@@ -1,10 +1,8 @@
 const express = require('express');
 const app = express();
-const { v4: uuidV4 } = require('uuid');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const LocalStrategy = require('passport-local');
-const passportLocalMongoose = require('passport-local-mongoose');
 const session = require('express-session');
 const userRoute = require('./routes/user');
 const flash = require('connect-flash');
@@ -15,9 +13,9 @@ const socketIO = require('socket.io');
 const fileupload = require("express-fileupload");
 const server = http.Server(app);
 var multer = require('multer');
-var upload = multer({ dest: 'public/videos' });
 const connectDB = require('./config/db');
 const isLoggedIn = require('./utils/middleware');
+const fileRoute = require('./routes/file');
 
 app.use(session({
     secret: 'whatever you want',
@@ -92,6 +90,7 @@ io.on('connection', socket => {
     })
     socket.on('addcomment', async (comment) => {
         // console.log(comment);
+        let currentAudio = await Audio.findOne({ id: AUDIO_ID });
         console.log('I am from the server and from the function add comment,and below is comment content');
         console.log(comment);
         let currentComment = new Comment({ title: comment.title, timestampMinutes: comment.timestampMinutes, timestampSeconds: comment.timestampSeconds, content: comment.content, tags: [] });
@@ -99,7 +98,6 @@ io.on('connection', socket => {
         console.log('I am from the server and from the function add comment,and below is Saved comment content');
         console.log(currentComment);
 
-        let currentAudio = await Audio.findOne({ id: AUDIO_ID });
         for (let i = 0; i < comment.tags.length; i++) {
             let tag = new Tag({ tag: comment.tags[i], comment: currentComment._id });
             await tag.save();
@@ -137,6 +135,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/user', userRoute);
+app.use('/files', fileRoute);
 
 app.get('/', (req, res) => {
     res.render('index.ejs');
@@ -181,24 +180,8 @@ app.post('/url', async (req, res) => {
             value++;
         }
     }
-})
-// app.post('/files', upload.single('file'), (req, res) => {
-//     console.log(req.files);
-//     console.log(req.file);
-//     if (req.files) {
-//         console.log(req.files);
-//         var file = req.files.file;
-//         var filename = file.name
-//         console.log(filename);
-//         file.mv('./public/videos/' + filename, function (err) {
-//             if (err) {
-//                 res.send(err);
-//             } else {
-//                 res.send("file uploaded");
-//             }
-//         });
-//     }
-// })
+});
+
 app.get('/play_music/:id', async (req, res) => {
     console.log('I am called');
     if (req.user) {

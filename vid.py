@@ -7,3 +7,4 @@ clip = mp.VideoFileClip(videoname)
 audioname = videoname.split('.')[0] + '.mp3'
 clip.audio.write_audiofile(audioname)
 
+quit(0)
