@@ -4,3 +4,10 @@
     border-radius: 0;
     background-color: black;
 }
+.comment{
+    background-color: black;
+}
+.comment:hover{
+
+    cursor: pointer;
+}

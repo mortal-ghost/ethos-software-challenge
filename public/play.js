@@ -19,9 +19,7 @@ const createComment = (comment) => {
 
     document.getElementById('all-comments').innerHTML += `
 
-    <div class="flex  items-center w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
-
-  
+    <div class="flex  items-center w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3 comment" id=>
 
     <div><h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">${comment.title}</h3>
       <p class="text-sm font-bold text-gray-300">${timeStamp}</p>
@@ -29,7 +27,6 @@ const createComment = (comment) => {
       ${comment.content}</p>
     </div>
 </div>
-   
   `;
 
 
