@@ -32,6 +32,7 @@
 * [NodeJS](https://nodejs.org/en/docs/)
 * [ExpressJS](https://expressjs.com/)
 * [Python](https://docs.python.org/3/)
+* [SocketIO](https://socket.io/docs/v4/)
 * [MongoDB](https://www.mongodb.com/docs/)
 * [TailWindCSS](https://tailwindcss.com/)
 
