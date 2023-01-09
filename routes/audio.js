@@ -13,6 +13,9 @@ router.get('/all_projects', isLoggedIn, async (req, res) => {
 router.get('/play_music/:id', isLoggedIn, async (req, res) => {
     const audio = await Audio.findOne({ id: req.params.id });
     let filename = req.user.username + '_' + req.params.id + '.mp3';
+    if (!audio) {
+        return res.redirect('/error');
+    }
     res.render('play.ejs', { filename: filename, comments: audio.comments, audio_id: req.params.id, Audio: Audio });
 });
 

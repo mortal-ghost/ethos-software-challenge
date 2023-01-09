@@ -7,7 +7,6 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const http = require('http');
 const socketIO = require('socket.io');
-const fileupload = require("express-fileupload");
 const server = http.Server(app);
 const connectDB = require('./config/db');
 const userRoute = require('./routes/user');
@@ -34,7 +33,6 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(fileupload());
 app.use(methodOverride('_method'));
 
 // const { exists } = require('./models/user');
@@ -123,81 +121,6 @@ io.on('connection', socket => {
         await currentAudio.save();
     });
 });
-
-//When you even redirect from any route, it will come below first, I mean the request will re propagate.
-
-
-// app.get('/', (req, res) => {
-//     res.render('index.ejs');
-// });
-
-// app.post('/url', async (req, res) => {
-//     console.log(req.body);
-//     const newAudio = Audio({});
-//     newAudio.name = req.body.name;
-//     await newAudio.save();
-//     newAudio.path = __dirname + '/public/audio/' + req.user.username + '_' + newAudio._id + '.mp3';
-//     newAudio.comments = [];
-//     newAudio.id = String(newAudio._id);
-//     newAudio.userid = String(req.user._id);
-//     await newAudio.save();
-//     const filename = req.user.username + '_' + newAudio._id + '.mp3';
-//     let command = "python3 " + "getyoutubeaudio.py " + "'" + req.body.url + "'" + " " + (req.user.username + '_' + newAudio._id);
-//     console.log(command);
-
-//     let end = 0;
-//     exec(command, async (error, stdout, stderr) => {
-//         if (error) {
-//             console.log(`error: ${error.message}`);
-//             return;
-//         }
-//         if (stderr) {
-//             console.log(`stderr: ${stderr}`);
-//             return;
-//         }
-
-//         console.log(`stdout: ${stdout}`);
-//         executefunc();
-//     });
-
-//     let value = 0;
-
-//     const executefunc = () => {
-//         if (value == 0) {
-//             console.log('The below is value');
-//             console.log(value);
-//             res.redirect('/play_music/' + newAudio._id);
-//             value++;
-//         }
-//     }
-// });
-
-// app.get('/play_music/:id', async (req, res) => {
-//     console.log('I am called');
-//     if (req.user) {
-//         console.log(req.params.id);
-//         const newAudio = await Audio.findOne({ id: req.params.id });
-//         let filename = req.user.username + '_' + req.params.id + '.mp3';
-//         res.render('play.ejs', { filename: filename, comments: newAudio.comments, audio_id: req.params.id, Audio: Audio });
-//     } else {
-//         res.render('index.ejs');
-//     }
-// });
-
-// app.get('/error', (req, res) => {
-//     res.render('error');
-// });
-
-// app.get('/upload_file', isLoggedIn, (req, res) => {
-//     res.render('input');
-// });
-
-// app.get('/all_projects', isLoggedIn, async (req, res) => {
-
-//     const allAudios = await Audio.find({ userid: String(req.user._id) });
-
-//     res.render('allprojects.ejs', { allAudios: allAudios });
-// });
 
 server.listen(3000, (err) => {
 
